@@ -63,8 +63,8 @@
 			<artifactId>lombok</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		</dependencies>
-		<!-- 追加したやつここまで -->
+	</dependencies>
+	<!-- 追加したやつここまで -->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
