@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,8 +18,15 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    // 入力フォーム表示
+ // 入力フォーム表示suru
     @GetMapping("/")
+    public String showIUserList(Model model) {
+    	List<User> users = userService.getAllActiveUser(); // 削除フラグが0のユーザーを取得
+        model.addAttribute("users", users);
+        return "user-list";
+    }
+    // 入力フォーム表示suru
+    @GetMapping("/Input")
     public String showInputForm(Model model) {
         model.addAttribute("user", new User());
         return "input";
