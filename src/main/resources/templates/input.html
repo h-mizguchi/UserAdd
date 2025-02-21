@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>入力画面</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body>
+    <h2 class="text-2xl font-bold mb-4">情報入力</h2>
+    <form th:action="@{/confirm}" th:object="${user}" method="post">
+        <label>名前：</label>
+        <input type="text" th:field="*{name}" required />
+        <br>
+
+        <label>年齢：</label>
+        <input type="number" th:field="*{age}" required />
+        <br>
+
+        <label>開発スキル：</label>
+		<label>
+			<input type="checkbox" th:field="*{skill}" value="Java"> Java
+		</label>
+		<label>
+		    <input type="checkbox" th:field="*{skill}" value="Python"> Python
+		</label>
+		<label>
+		    <input type="checkbox" th:field="*{skill}" value="Linux"> Linux
+		</label>
+		<label>
+		    <input type="checkbox" th:field="*{skill}" value="C#"> C#
+		</label>
+        <br>
+		<br>
+		<button type="submit" class="bg-green-500 text-white p-2 rounded">送信</button>
+    </form>
+</body>
+</html>

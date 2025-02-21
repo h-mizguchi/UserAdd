@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>確認画面</title>
+</head>
+<body>
+    <h2>入力内容確認</h2>
+    <p>名前: <span th:text="${user.name}"></span></p>
+    <p>年齢: <span th:text="${user.age}"></span></p>
+    <p>開発スキル:</p>
+	<ul>
+		<li th:each="skill : ${user.skill}" th:text="${skill}"></li>
+	</ul>
+
+    <form th:action="@{/register}" th:object="${user}" method="post">
+        <input type="hidden" th:field="*{name}">
+        <input type="hidden" th:field="*{age}">
+		<div th:each="skill : ${user.skill}">
+			<input type="hidden" name="skill" th:value="${skill}">
+		</div>
+        <button type="submit">登録</button>
+    </form>
+
+    <form th:action="@{/back}" th:object="${user}" method="post">
+        <input type="hidden" th:field="*{name}">
+        <input type="hidden" th:field="*{age}">
+		<div th:each="skill : ${user.skill}">
+		    <input type="hidden" name="skill" th:value="${skill}">
+		</div>
+		<button type="submit">戻る</button>
+    </form>
+</body>
+</html>
