@@ -16,8 +16,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    // 入力フォーム表示
-    @GetMapping("/")
+    // 入力フォーム表示suru
+    @GetMapping("/Input")
     public String showInputForm(Model model) {
         model.addAttribute("user", new User());
         return "input";
