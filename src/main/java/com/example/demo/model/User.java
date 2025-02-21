@@ -28,7 +28,7 @@ public class User {
     @Column(nullable = false)
     private String skill;
     
-    @Column(nullable = false)
+    @Column(name = "deleteFlag",nullable = false)
     private Integer deleteFlag = 0;
     
 }
